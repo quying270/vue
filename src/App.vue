@@ -4,9 +4,31 @@
     <header class="fixed" v-text="title"></header>
     <headNav></headNav>
     <router-view/>
-    <footer>
-      
+    <!--footNav-->
+    <footer class="ft">
+      <a class="link">
+        <div class="svg iconfont icon-shouye"></div>
+        <p>首页</p>
+      </a>
+
+      <a class="link">
+        <div class="svg iconfont icon-ditu"></div>
+        <p>潭州</p>
+      </a>
+      <a class="link">
+        <div class="svg iconfont icon-tianqichaxun"></div>
+        <p>天气</p>
+      </a>
+      <a class="link">
+        <div class="svg iconfont icon-gouwuche count"><i class="showNum">{{pickNum}}</i></div>
+        <p>购物</p>
+      </a>
+      <a class="link">
+        <div class="svg iconfont icon-weibiaoti2fuzhi12"></div>
+        <p>我的课程</p>
+      </a>
     </footer>
+    <!--footNav-->
   </div>
 </template>
 
@@ -15,7 +37,8 @@ export default {
   name: 'App',
   data () {
     return {
-      title: 'quying'
+      title: 'quying',
+      pickNum: 8
     }
   },
   created () {
@@ -28,6 +51,7 @@ export default {
         witdh = 750
       }
       html.style.fontSize = witdh / 10 + 'px'
+      console.log(html.style.fontSize)
     }
     this.$ajax.get(this.dataURL('vue.php', 'vueTitle'))
       .then((res) => {
@@ -80,10 +104,60 @@ export default {
     background-repeat: no-repeat;
     background-position: top left;
 
-    /* background-color: #fafafa; */
-    background: #26a2ff;
+    background-color: #fafafa;
+    /* background: #26a2ff; */
     display: flex;
     text-align: center;
+    a{
+      color: #18b4ed;
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    .link{
+      display: block;
+      /*padding: 7px 0;*/
+      flex: 1;
+      text-decoration: none;
+    }
+    .link .svg{
+      margin: 15/@rem auto 5px;
+      font-size: 44/@rem;
+    }
+
+    .link p{
+      color: inherit;
+      font-size: 24/@rem;
+      line-height: 1;
+    }
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+    .count{
+      position: relative;
+    }
+    .count .showNum{
+      position: absolute;
+      margin: auto;
+      width: 40/@rem;
+      height: 40/@rem;
+      line-height: 40/@rem;
+      background: red;
+      color: #fff;
+      font-size: 12/@rem;
+      border-radius: 50%;
+      font-style: normal;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity 0.2s;
+    }
+    .fade-enter, .fade-leave-to , .fade-leave-active below version  {
+      opacity: 0;
+    }
   }
 }
 </style>
