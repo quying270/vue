@@ -6,19 +6,18 @@
     <router-view/>
     <!--footNav-->
     <footer class="ft">
-      <a class="link">
+      <router-link class="link" :to="{name:'index'}">
         <div class="svg iconfont icon-shouye"></div>
         <p>首页</p>
-      </a>
-
-      <a class="link">
+      </router-link>
+      <router-link class="link" :to="{name:'map'}">
         <div class="svg iconfont icon-ditu"></div>
         <p>潭州</p>
-      </a>
-      <a class="link">
+      </router-link>
+      <router-link class="link" :to="{name:'weather'}">
         <div class="svg iconfont icon-tianqichaxun"></div>
         <p>天气</p>
-      </a>
+      </router-link>
       <a class="link">
         <div class="svg iconfont icon-gouwuche count"><i class="showNum">{{pickNum}}</i></div>
         <p>购物</p>
